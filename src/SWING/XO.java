@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package SWING;
-
+import javax.swing.JOptionPane;
 import javax.swing.JLabel;
 
 /**
@@ -80,6 +80,10 @@ public class XO extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
 
         b1.setBackground(new java.awt.Color(204, 255, 204));
         b1.setFont(new java.awt.Font("Lucida Bright", 0, 36)); // NOI18N
@@ -227,7 +231,7 @@ public class XO extends javax.swing.JPanel {
         );
 
         tit.setFont(new java.awt.Font("Magneto", 0, 18)); // NOI18N
-        tit.setForeground(new java.awt.Color(255, 153, 153));
+        tit.setForeground(new java.awt.Color(0, 0, 0));
         tit.setText("X-O");
         tit.setToolTipText("");
 
@@ -331,13 +335,13 @@ public class XO extends javax.swing.JPanel {
             if(casillas[ganar[i][0]-1].getText().equals("X") &&
                     casillas[ganar[i][1]-1].getText().equals("X")&&
                     casillas[ganar[i][2]-1].getText().equals("X")){
-                System.out.println("El ganador es X");
+               JOptionPane.showMessageDialog(this, "El ganador es X");
                 
             }
             if(casillas[ganar[i][0]-1].getText().equals("O") &&
                     casillas[ganar[i][1]-1].getText().equals("O")&&
                     casillas[ganar[i][2]-1].getText().equals("O")){
-                System.out.println("El ganador es O");
+                 JOptionPane.showMessageDialog(this, "El ganador es O");
                 
             }
         }

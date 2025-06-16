@@ -1,22 +1,25 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package SWING;
 
+import LOGICA.XO_LabProgra_S8;
+import LOGICA.Player;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Eric Rodriguez
  */
-public class menu2 extends javax.swing.JPanel {
+public class menu2 extends javax.swing.JFrame {
 
     /**
      * Creates new form menu2
      */
     public menu2() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -29,24 +32,30 @@ public class menu2 extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        TITULOO = new javax.swing.JLabel();
-        Jugar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jugar = new javax.swing.JButton();
         ranking = new javax.swing.JButton();
         salir = new javax.swing.JButton();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        TITULOO.setBackground(new java.awt.Color(0, 102, 0));
-        TITULOO.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
-        TITULOO.setText("TicTacToe");
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("TicTacToe");
 
-        Jugar.setText("Jugar");
-        Jugar.addActionListener(new java.awt.event.ActionListener() {
+        jugar.setBackground(new java.awt.Color(0, 0, 0));
+        jugar.setFont(new java.awt.Font("Goudy Stout", 0, 18)); // NOI18N
+        jugar.setText("Jugar");
+        jugar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JugarActionPerformed(evt);
+                jugarActionPerformed(evt);
             }
         });
 
+        ranking.setBackground(new java.awt.Color(0, 0, 0));
+        ranking.setFont(new java.awt.Font("Goudy Stout", 0, 18)); // NOI18N
         ranking.setText("Ranking");
         ranking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,6 +63,8 @@ public class menu2 extends javax.swing.JPanel {
             }
         });
 
+        salir.setBackground(new java.awt.Color(0, 0, 0));
+        salir.setFont(new java.awt.Font("Goudy Stout", 0, 18)); // NOI18N
         salir.setText("Salir");
         salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,34 +76,34 @@ public class menu2 extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(134, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(125, 125, 125))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(139, Short.MAX_VALUE)
+                .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TITULOO, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Jugar, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                            .addComponent(ranking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(salir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(104, 104, 104))
+                    .addComponent(jugar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ranking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(salir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(TITULOO, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Jugar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ranking)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(salir)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jugar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(ranking, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -101,41 +112,99 @@ public class menu2 extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JugarActionPerformed
+    private void jugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jugarActionPerformed
         // TODO add your handling code here:
+        String jugador2;
+        
         do {
-            jugador2 = JOptionPane.showInputDialog("Ingrese el nombre del jugador rival.");
+            jugador2 = JOptionPane.showInputDialog("Ingrese el nombre del segundo jugador ( recuerde que debe ser un jugador registrado)");
         } while (jugador2.equals(String.valueOf(XO_LabProgra_S8.juego.jugador1)));
         
         Player jugador = XO_LabProgra_S8.juego.jugador2(jugador2);
         
         if (jugador != null){
-            JOptionPane.showMessageDialog(this, "Se ha encontrado al jugador " + jugador.getUsername());
+            JOptionPane.showMessageDialog(this, "Se ha encontrado al jugador, iniciando..");
             dispose();
-            XO_LabProgra_S8.juego.iniciar_juego();
+            TicTacToe xo = new TicTacToe();
+            xo.setVisible(true);
+            this.setVisible(false);
         } else {
-            JOptionPane.showMessageDialog(this, "No se ha encontrado al jugador. Intentelo de nuevo.");
+            JOptionPane.showMessageDialog(this, "No se ha encontrado al jugador. Intente de nuevo");
         }
-    
-    }//GEN-LAST:event_JugarActionPerformed
+        
+    }//GEN-LAST:event_jugarActionPerformed
 
     private void rankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rankingActionPerformed
         // TODO add your handling code here:
+        mostrarranking();
         
     }//GEN-LAST:event_rankingActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        menu_inicio regresar = new menu_inicio();
+        regresar.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_salirActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(menu2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(menu2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(menu2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(menu2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new menu2().setVisible(true);
+            }
+        });
+    }
+     public void mostrarranking(){
+    XO_LabProgra_S8.organizarjugadores(); 
+    StringBuilder sb = new StringBuilder("Ranking de Jugadores:\n\n");
+     for (int i = 0; i < XO_LabProgra_S8.jugadores_registrados; i++) {
+        Player p = XO_LabProgra_S8.jugadores[i];
+        if (p != null) {
+            sb.append((i + 1)).append(". ")
+              .append(p.getUsername())
+              .append(" - ")
+              .append(p.getPuntos())
+              .append(" puntos\n");
+        }
+     }
+      JOptionPane.showMessageDialog(this, sb.toString(), "Ranking", JOptionPane.INFORMATION_MESSAGE);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Jugar;
-    private javax.swing.JLabel TITULOO;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton jugar;
     private javax.swing.JButton ranking;
     private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables
